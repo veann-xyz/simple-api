@@ -12,7 +12,7 @@ router.get('/css/style.css', async(req, res) => {
 
 
 //RANDOM ANIME
-router.get('/wallpaper/waifu', async (req, res, next) => {
+router.get('/randomimg/waifu', async (req, res, next) => {
 fetch(encodeURI(`https://waifu.pics/api/sfw/waifu`))
 .then(response => response.json())
 .then(async data => {
@@ -25,7 +25,7 @@ res.send(await buffer.buffer())
 res.json(loghandler.error)
  })
 })
-router.get('/wallpaper/neko', async (req, res, next) => {
+router.get('/randomimg/neko', async (req, res, next) => {
 fetch(encodeURI(`https://waifu.pics/api/sfw/neko`))
 .then(response => response.json())
 .then(async data => {
@@ -38,7 +38,7 @@ res.send(await buffer.buffer())
 res.json(loghandler.error)
 })
 })
-router.get('/wallpaper/husbu', async (req, res, next) => {
+router.get('/randomimg/husbu', async (req, res, next) => {
 let waif = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/husbu.json`)).data
 let result = waif[Math.floor(Math.random() * (waif.length))]
 let data = await getBuffer(result)
@@ -47,7 +47,7 @@ await res.sendFile(__path +'/database/waifu.png')
 await sleep(3000)
 await fs.unlinkSync(__path + '/database/waifu.png')
 })
-router.get('/wallpaper/loli', async (req, res, next) => {
+router.get('/randomimg/loli', async (req, res, next) => {
 let waif = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/loli.json`)).data
 let result = waif[Math.floor(Math.random() * (waif.length))]
 let data = await getBuffer(result)
@@ -56,7 +56,7 @@ await res.sendFile(__path +'/database/waifu.png')
 await sleep(3000)
 await fs.unlinkSync(__path + '/database/waifu.png')
 })
-router.get('/wallpaper/milf', async (req, res, next) => {
+router.get('/randomimg/milf', async (req, res, next) => {
 let waif = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/milf.json`)).data
 let result = waif[Math.floor(Math.random() * (waif.length))]
 let data = await getBuffer(result)
@@ -65,7 +65,7 @@ await res.sendFile(__path +'/database/waifu.png')
 await sleep(3000)
 await fs.unlinkSync(__path + '/database/waifu.png')
 })
-router.get('/wallpaper/cosplay', async (req, res, next) => {
+router.get('/randomimg/cosplay', async (req, res, next) => {
 let waif = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/cosplay.json`)).data
 let result = waif[Math.floor(Math.random() * (waif.length))]
 let data = await getBuffer(result)
